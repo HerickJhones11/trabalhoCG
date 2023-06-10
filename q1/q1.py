@@ -41,7 +41,7 @@ def tronco():
 
 
 def q1():
-    # cilindro()
+    cilindro()
     # cone()
     # esfera()
     # cubo()

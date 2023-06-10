@@ -60,11 +60,16 @@ def plot_cone(
             y_end = rotated_points[:, 1]
             z_end = rotated_points[:, 2]
 
-    
-    for i in range(0, len(x_start)):
-        ax.plot([x_start[i], x_end[i]], [y_start[i], y_end[i]], [z_start[i], z_end[i]], color="blue")
+    arestas_verticais = []
+    for j in range(len(x_start)):
+      aresta = ([x_start[j], x_end[j]], [y_start[j], y_end[j]], [z_start[j], z_end[j]])
+      arestas_verticais.append(aresta)
 
-    return points_list
+    for aresta in arestas_verticais:
+      ax.plot(aresta[0], aresta[1], aresta[2], color="blue")
+
+
+    return points_list, arestas_verticais
 
 
 def cilindro(ax):
@@ -79,4 +84,5 @@ def cilindro(ax):
     scale = [1, 1, 1]
     angulo_rotacao = np.pi/4  # Ângulo de rotação (45 graus)
     eixo_rotacao = (0, 0, 0)  
-    return plot_cone(centro, raio_base, altura, tamanho_tampa_superior, numero_fatias, num_points, ax, translacao, scale, angulo_rotacao, eixo_rotacao)
+    arestar_horizontais, arestas_verticais = plot_cone(centro, raio_base, altura, tamanho_tampa_superior, numero_fatias, num_points, ax, translacao, scale, angulo_rotacao, eixo_rotacao)
+    return arestar_horizontais, arestas_verticais

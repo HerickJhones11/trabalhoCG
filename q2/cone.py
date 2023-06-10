@@ -16,5 +16,7 @@ def cone(ax):
     translacao = [7, 9, 2]
     scale = [1.5, 1.5, 1.5]
     angulo_rotacao = np.pi/4  # Ângulo de rotação (45 graus)
-    eixo_rotacao = (0, 0, 0)  
-    return plot_cone(centro, raio_base, altura, tamanho_tampa_superior, numero_fatias, num_points, ax, translacao, scale, angulo_rotacao, eixo_rotacao)
+    eixo_rotacao = (0, 0, 0) 
+    arestar_horizontais, arestas_verticais = plot_cone(centro, raio_base, altura, tamanho_tampa_superior, numero_fatias, num_points, ax, translacao, scale, angulo_rotacao, eixo_rotacao)
+    return arestar_horizontais, arestas_verticais
+ 
